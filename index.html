@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-theme="light" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +11,240 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <header>
+           <div class="lg:container lg:mx-auto">
+                    <div class="navbar bg-base-100 py-10">
+                        <div class="navbar-start">
+                          <div class="dropdown">
+                            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                            </div>
+                            
+                            <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                              <li><a>
+                                <img src="./images/Frame.png" alt="">
+                              </a></li>
+                              <li><a><img src="./images/frame1.png" alt=""></a></li>
+                              <li><a>
+                                <img src="./images/frame2.png" alt="">
+                              </a></li>
+                              <li><a>
+                                <img src="./images/frame3.png" alt="">
+                              </a></li>
+                            </ul>
+                          </div>
+                          <a class="btn btn-ghost text-5xl text-[#12132D] mulish font-[900] ">ReTro</a>
+                        </div>
+                        
+                        <div class="navbar-end">
+                            <div class="navbar-center hidden lg:flex ">
+                                <ul class="menu menu-horizontal px-1 space-x-4 mr-6">
+                                  
+                                <div class="tooltip bg-[#12132D08] px-2 py-4 text-5xl text-[#12132Dcc]  rounded-full border border-[#12132D19] flex justify-center items-center" data-tip="Home">
+                                    <li><a>
+                                        <img src="./images/Frame.png" alt="">
+                                          
+                                      </a></li>
+                                </div>
+                                <div class="tooltip bg-[#12132D08] px-2 py-4 text-xl text-[#12132Dcc]  rounded-full border border-[#12132D19] flex justify-center items-center" data-tip="Edit">
+                                    <li><a>
+                                        <img src="./images/frame1.png" alt="">
+                                      </a></li>
+                                </div>
+                                <div class="tooltip bg-[#12132D08] px-2 py-4 text-xl text-[#12132D]  rounded-full border border-[#12132D19] flex justify-center items-center" data-tip="Add">
+                                    <li><a>
+                                        <img src="./images/frame2.png" alt="">
+                                          
+                                      </a></li>
+                                </div>
+                                <div class="tooltip bg-[#12132D08] px-2 py-4 text-xl text-[#12132Dcc]  rounded-full border border-[#12132D19] flex justify-center items-center" data-tip="Flag">
+                                    <li><a>
+                                        <img src="./images/frame3.png" alt="">
+                                      </a></li>
+                                </div>
+                                  
+                                </ul>
+                              </div>
+                            <a class=" bg-[#797DFC] text-white lg:px-10 rounded-full text-xl mulish font-bold lg:py-5 px-4 py-3">Sign In</a>
+                        </div>
+                      </div>
+           </div> 
+    </header>
+    <main>
+      <!-- banner section -->
+        <section class="container mx-auto">
+            <div>
 
+                <div class="bg-[url('./images/banner.png')] bg-no-repeat bg-cover bg-center rounded-2xl py-24 ">
+                    <div class="flex flex-col lg:flex-row-reverse justify-around items-center lg:gap-0 gap-11">
+                      <div class="text-center  bg-white p-14 rounded-2xl space-y-6">
+                        <div class="flex justify-between gap-14">
+                            <h3 class="text-2xl font-semibold text-[#12132Dcc]">Registered Users</h3>
+                            <h3 class="text-2xl font-semibold text-[#12132Dcc]">01</h3>
+                        </div>
+                        
+                           <div class="flex justify-between gap-14">
+                                <h3 class="text-2xl font-semibold text-[#12132Dcc]">Froum</h3>
+                                <h3 class="text-2xl font-semibold text-[#12132Dcc]">05</h3>
+                            </div>
+                        
+                        <div class="flex justify-between gap-14">
+                            <h3 class="text-2xl font-semibold text-[#12132Dcc]">Topics</h3>
+                            <h3 class="text-2xl font-semibold text-[#12132Dcc]">01</h3>
+                        </div>
+                        <div class="flex justify-between gap-14">
+                            <h3 class="text-2xl font-semibold text-[#12132Dcc]">Replies</h3>
+                            <h3 class="text-2xl font-semibold text-[#12132Dcc]">01</h3>
+                        </div>
+                      </div>
+                      <div class="space-y-8">
+                            <h1 class="text-6xl mulish text-white font-extrabold leading-[86px]">Welcome to the <br> <span class="text-[#797DFC]">ReTro</span> Forum</h1>
+                            <p class="text-[#ffffffc9] text-2xl">Share your favorite opinion and win and wp <br> forum coffee mug!</p>
+                            <label class="input input-bordered rounded-full flex items-center gap-2 py-8">
+                                <input type="text" class="grow text-xl" placeholder="Search here anything" />
+                                <span class="badge badge-info bg-[#797DFC] text-white p-5 text-xl font-bold">Search</span>
+                              </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        </section>
+
+        <!-- discuss section -->
+
+        <section>
+            <div class="container mx-auto py-14">
+             <div class="space-y-4">
+                <h2 class="text-5xl font-extrabold mulish text-[#12132D] text-center">Let’s Discuss</h2>
+                <p class="text-center text-[#12132D99] inter text-xl">Yes, you can run unit tests and view the results directly within the app. The <br> integrated testing features allow for a streamlined .</p>
+             </div>
+
+             <div class="grid lg:grid-cols-3 grid-cols-1 pt-20 gap-10">
+                <div class="col-span-1 lg:col-span-2 flex gap-16 flex-col lg:flex-row  bg-[#F3F3F5] p-8 rounded-2xl ">
+                    <div>
+                      <div class="indicator">
+                        <span class="indicator-item badge badge-secondary"></span> 
+                        <div class="grid w-32 h-32 bg-base-300 place-items-center"><img src="./images/Vector.png" alt=""></div>
+                      </div>
+                    </div>
+                    <div class="space-y-5">
+                        <div class="flex gap-10 flex-col lg:flex-row">
+                            <p class="text-xl text-[#12132D96] inter"># Music</p>
+                            <p class="text-xl text-[#12132D96] inter">Author: Awelad Hossin</p>
+                        </div> 
+                            <h3 class="text-2xl text[#12132Dcc] font-extrabold mulish">10 Kids Unaware of Their Halloween Costume</h3>
+                            <p class="text-xl text-[#12132D80] border-b border-dashed border-[#12132D4D] pb-8">It’s one thing to subject yourself to ha Halloween costume mishap because, hey that’s your prerogative</p>
+
+                        <div class="flex justify-between flex-col lg:flex-row lg:gap-0 gap-4 pt-6">
+                              <div class="flex gap-3 text-[#12132D96] font-semibold text-xl lg:space-x-8">
+                                  <p><i class="fa-regular fa-message mr-3"></i><span>560</span></p>
+                                  <p><i class="fa-regular fa-eye mr-3"></i> <span>1340</span></p>
+                                  <p><i class="fa-regular fa-clock mr-3"></i><span>5 min</span></p>
+                              </div>
+                              <div>
+                                  <button class="bg-[#10B981] px-3 py-2 text-white text-xl rounded-full"><i class="fa-solid fa-envelope-open"></i></button>
+                                 
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-1 bg-[#F3F3F5] p-8 rounded-2xl ">
+                    <div class="flex justify-between mb-6 text-xl mulish font-semibold text-[#12132D80]">
+                        <h2>Title</h2>
+                        <p>Mark as read <span>(4)</span></p>
+                    </div>
+                    <div class="flex justify-between bg-white px-6 py-4 rounded-2xl mb-5 flex-col lg:flex-row lg:gap-0 gap-4">
+                        <h3 class="text-xl text[#12132D99] font-bold mulish">10 Kids Unaware of Their Halloween Costume</h3>
+                        <p class=" flex lg:justify-center items-center"><i class="fa-regular fa-eye mr-3"></i> <span>1340</span></p>
+                    </div>
+                </div>
+             </div>
+            </div>
+        </section>
+
+        <!-- join forum -->
+
+       <section>
+            <div class="container mx-auto my-10">
+                <div class="bg-[#12132D] flex justify-between px-10 py-20 rounded-2xl items-center flex-col-reverse lg:flex-row lg:gap-0 gap-8">
+                  <div class="space-y-8 pl-10">
+                        <h1 class="text-6xl mulish text-white font-extrabold leading-[86px]">Join Our Forum</h1>
+                        <p class="text-[#ffffffc9] text-2xl">Share your favorite opinion and win and wp forum coffee mug! Yes, you can <br> run unit tests and view the results directly within the app. </p>
+                        <button class="bg-[#797DFC] text-white lg:px-10 rounded-full text-2xl mulish font-bold lg:py-5 px-4 py-3">Register Now</button>
+                  </div>
+                  <div class="">
+                    <img src="./images/join.png" alt="">
+                  </div>
+              </div>
+            </div>
+       </section>
+
+       <!-- latest post -->
+
+       <section>
+            <div class="container mx-auto py-10">
+                <div class="space-y-4">
+                  <h2 class="text-5xl font-extrabold mulish text-[#12132D] text-center">Latest Posts</h2>
+                  <p class="text-center text-[#12132D99] inter text-xl">Yes, you can run unit tests and view the results directly within the app. The <br> integrated testing features allow for a streamlined .</p>
+                </div>
+
+                <div class="grid lg:grid-cols-3 grid-cols-1 py-14">
+                    <div class="grid-cols-1">
+                        <div class="card w-96 bg-base-100 border border-[#12132D30]">
+                            <figure class="px-10 pt-10">
+                              <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" class="rounded-xl" />
+                            </figure>
+                            <div class="card-body">
+                                <p class="flex items-center text-[#12132D99] text-xl"><i class="fa-regular fa-calendar mr-3"></i><span>29 January 2024</span></p>
+                                <h3 class="text-xl text[#12132D99] font-bold mulish">10 Kids Unaware of Their Halloween Costume</h3>
+                                <p class="text-[#12132D99] inter">Yes, you can run unit tests and view the results directly within the app. </p>
+
+                                <div class="flex gap-6 flex-col lg:flex-row lg:gap-0"
+                                    <div class="rounded-full">
+                                      <img src="" alt="">
+                                    </div>
+                                    <div>
+                                      <p>Cameron Williamson</p>
+                                      <p>Unknown</p>
+                                    </div>
+                                </div>
+                          </div>
+                      </div>
+                    </div>
+
+                </div>
+
+            </div>
+       </section>
+
+
+    </main>
+
+    
+      <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+          <div class="container mx-auto">
+            <nav class="grid grid-flow-col gap-4">
+              <div class="space-y-4">
+                <h2 class="text-5xl font-extrabold mulish text-[#12132D] text-center">ReTro</h2>
+                <p class="text-center text-[#12132D99] inter text-xl">Contrary to popular belief, Lorem Ipsum is not simply random text. It has <br> roots in a piece of classical Latin literature from 45 BC</p>
+              </div>
+            </nav> 
+            <nav>
+              <div class="grid grid-flow-col gap-8 text-3xl mt-4">
+                <a><i class="fa-brands fa-twitter"></i></a>
+                <a><i class="fa-brands fa-facebook-f"></i></a>
+                <a><i class="fa-brands fa-instagram"></i></a>
+                <a><i class="fa-brands fa-github"></i></a>
+    
+              </div>
+            </nav> 
+            <div class="w-full h-[2px] bg-[#12132D19] px-10 my-10"></div>
+            <aside>
+              <p class="text-xl text-[#12132D80]">Copyright © 2024 - All right reserved by ReTro Forum Ltd</p>
+            </aside>
+          </div>
+      </footer>
+    
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/767c1492d1.js" crossorigin="anonymous"></script>
     <!-- script js -->

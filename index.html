@@ -76,7 +76,7 @@
             <div>
 
                 <div class="bg-[url('./images/banner.png')] bg-no-repeat bg-cover bg-center rounded-2xl py-24 ">
-                    <div class="flex flex-col lg:flex-row-reverse justify-around items-center lg:gap-0 gap-11">
+                    <div class="flex flex-col lg:flex-row-reverse lg:justify-around justify-center items-center lg:gap-0 gap-11">
                       <div class="text-center  bg-white p-14 rounded-2xl space-y-6">
                         <div class="flex justify-between gap-14">
                             <h3 class="text-2xl font-semibold text-[#12132Dcc]">Registered Users</h3>
@@ -97,12 +97,12 @@
                             <h3 class="text-2xl font-semibold text-[#12132Dcc]">01</h3>
                         </div>
                       </div>
-                      <div class="space-y-8">
-                            <h1 class="text-6xl mulish text-white font-extrabold leading-[86px]">Welcome to the <br> <span class="text-[#797DFC]">ReTro</span> Forum</h1>
+                      <div class="space-y-8 text-center lg:text-left">
+                            <h1 class="lg:text-6xl text-3xl mulish text-white font-extrabold lg:leading-[86px]">Welcome to the <br> <span class="text-[#797DFC]">ReTro</span> Forum</h1>
                             <p class="text-[#ffffffc9] text-2xl">Share your favorite opinion and win and wp <br> forum coffee mug!</p>
-                            <label class="input input-bordered rounded-full flex items-center gap-2 py-8">
-                                <input type="text" class="grow text-xl" placeholder="Search here anything" />
-                                <span class="badge badge-info bg-[#797DFC] text-white p-5 text-xl font-bold">Search</span>
+                            <label class="input input-bordered rounded-full flex items-center gap-2 lg:py-8 py-6">
+                                <input id="search-text" type="text" class="grow  text-xl" placeholder="Search here anything" />
+                                <span onclick="allPostsFetch()" class="badge badge-info bg-[#797DFC] text-white lg:p-5 p-3 lg:text-xl font-bold">Search</span>
                               </label>
                       </div>
                     </div>
@@ -119,37 +119,16 @@
                 <p class="text-center text-[#12132D99] inter text-xl">Yes, you can run unit tests and view the results directly within the app. The <br> integrated testing features allow for a streamlined .</p>
              </div>
 
-             <div class="grid lg:grid-cols-3 grid-cols-1 pt-20 gap-10">
-                <div class="col-span-1 lg:col-span-2 flex gap-16 flex-col lg:flex-row  bg-[#F3F3F5] p-8 rounded-2xl ">
-                    <div>
-                      <div class="indicator">
-                        <span class="indicator-item badge badge-secondary"></span> 
-                        <div class="grid w-32 h-32 bg-base-300 place-items-center"><img src="./images/Vector.png" alt=""></div>
-                      </div>
-                    </div>
-                    <div class="space-y-5">
-                        <div class="flex gap-10 flex-col lg:flex-row">
-                            <p class="text-xl text-[#12132D96] inter"># Music</p>
-                            <p class="text-xl text-[#12132D96] inter">Author: Awelad Hossin</p>
-                        </div> 
-                            <h3 class="text-2xl text[#12132Dcc] font-extrabold mulish">10 Kids Unaware of Their Halloween Costume</h3>
-                            <p class="text-xl text-[#12132D80] border-b border-dashed border-[#12132D4D] pb-8">It’s one thing to subject yourself to ha Halloween costume mishap because, hey that’s your prerogative</p>
-
-                        <div class="flex justify-between flex-col lg:flex-row lg:gap-0 gap-4 pt-6">
-                              <div class="flex gap-3 text-[#12132D96] font-semibold text-xl lg:space-x-8">
-                                  <p><i class="fa-regular fa-message mr-3"></i><span>560</span></p>
-                                  <p><i class="fa-regular fa-eye mr-3"></i> <span>1340</span></p>
-                                  <p><i class="fa-regular fa-clock mr-3"></i><span>5 min</span></p>
-                              </div>
-                              <div>
-                                  <button class="bg-[#10B981] px-3 py-2 text-white text-xl rounded-full"><i class="fa-solid fa-envelope-open"></i></button>
-                                 
-                              </div>
-                        </div>
-                    </div>
+             <div class="grid lg:grid-cols-3 grid-cols-1 pt-20 gap-8">
+                <div id="posts-container" class="col-span-1 lg:col-span-2  ">
+                   
+                   
                 </div>
-                <div class="col-span-1 bg-[#F3F3F5] p-8 rounded-2xl ">
-                    <div class="flex justify-between mb-6 text-xl mulish font-semibold text-[#12132D80]">
+
+                <!--  tittle show -->
+                <div class="col-span-1">
+                   <div class="bg-[#F3F3F5] p-8 rounded-2xl row-span-1">
+                      <div class="flex justify-between mb-6 text-xl mulish font-semibold text-[#12132D80]">
                         <h2>Title</h2>
                         <p>Mark as read <span>(4)</span></p>
                     </div>
@@ -157,7 +136,9 @@
                         <h3 class="text-xl text[#12132D99] font-bold mulish">10 Kids Unaware of Their Halloween Costume</h3>
                         <p class=" flex lg:justify-center items-center"><i class="fa-regular fa-eye mr-3"></i> <span>1340</span></p>
                     </div>
+                   </div>
                 </div>
+
              </div>
             </div>
         </section>

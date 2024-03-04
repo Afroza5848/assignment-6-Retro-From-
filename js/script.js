@@ -1,23 +1,31 @@
 
-const searchText = document.getElementById('search-text');
+
 const postsContainer = document.getElementById('posts-container');
 const activePost = document.getElementById('active-post');
-const isActive = false;
+let postArray = [];
+let title = '';
+let view = '';
+let count = 0;
 
 const allPostsFetch = async() => {
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
     const data = await res.json();
     const allPosts = data.posts;
-
-    allPosts.forEach((singlePost) => {
+    console.log(allPosts);
+    
+    allPosts.map((singlePost) => {
         console.log(singlePost);
 
+        title = singlePost.title;
+        console.log(title);
+        view = singlePost.view_count;
         
-
+       
         const div = document.createElement('div');
         div.innerHTML = `
+                
             <div class="indicator">
-                <span id="active-post" class="indicator-item badge bg-red-600"></span> 
+                <span class="indicator-item badge ${singlePost.isActive?'bg-green-600':'bg-red-600'}"></span> 
                 <div class="grid w-32 h-32 bg-base-300 place-items-center"><img class="rounded-2xl" src="${singlePost.image}" alt=""></div>
             </div>
             <div class="space-y-5 w-full">
@@ -36,7 +44,7 @@ const allPostsFetch = async() => {
                         } min</span></p>
                     </div>
                     <div>
-                        <button class="bg-[#10B981] px-3 py-2 text-white text-xl rounded-full"><i class="fa-solid fa-envelope-open"></i></button>
+                        <button onclick="showTitle(title,view)" class="bg-[#10B981] px-3 py-2 text-white text-xl rounded-full"><i class="fa-solid fa-envelope-open"></i></button>
                     </div>
                 </div>
             </div>
@@ -44,6 +52,44 @@ const allPostsFetch = async() => {
         div.className = 'flex gap-16 flex-col lg:flex-row  bg-[#F3F3F5] p-8 rounded-2xl mb-8 row-span-1';
         postsContainer.appendChild(div);
 
-    });
+                         
+
+
+    }); 
+ 
+      
+    
 }
+// title show   
+
+
+let showTitle = ((title,view) => {
+    console.log(view);
+    const titleContainer = document.getElementById('title-container');
+    const div = document.createElement('div');
+    div.innerHTML =`
+        <h3 class="text-xl text[#12132D99] font-bold mulish">${title}</h3>
+        <p class=" flex lg:justify-center items-center"><i class="fa-regular fa-eye mr-3"></i> <span>${view}</span></p>
+    `
+    div.classList = 'flex justify-between bg-white px-6 py-4 rounded-2xl mb-5 flex-col lg:flex-row lg:gap-0 gap-4';
+    titleContainer.appendChild(div);
+}); 
+
+showTitle();
+// document.getElementById('title-show').addEventListener('click',(e) => {
+    
+// });
+
+// search function 
+
+const searchPosts = async() => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${category}`)
+    const data = await res.json();
+    console.log(data);
+    // const searchText = document.getElementById('search-text').value;
+    // document.getElementById('search-text').value = '';
+    //allPostsFetch(searchText);
+    
+}
+searchPosts();
 allPostsFetch();

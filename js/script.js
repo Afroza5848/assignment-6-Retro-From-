@@ -21,7 +21,7 @@ const displayAllPosts = (allPosts) => {
     allPosts.forEach((singlePost) => {
         //console.log(postArray);
         document.getElementById('loading-spinner').classList.add('hidden');
-        count++;
+        
         title = singlePost.title;
         
         //console.log(title);
@@ -51,7 +51,7 @@ const displayAllPosts = (allPosts) => {
                         } min</span></p>
                     </div>
                     <div>
-                        <button onclick="showTitle('${title}','${view}','${count}')" class="bg-[#10B981] px-3 py-2 text-white text-xl rounded-full"><i class="fa-solid fa-envelope-open"></i></button>
+                        <button onclick="showTitle('${title}','${view}')" class="bg-[#10B981] px-3 py-2 text-white text-xl rounded-full"><i class="fa-solid fa-envelope-open"></i></button>
                     </div>
                 </div>
             </div>
@@ -78,11 +78,15 @@ const displayAllPosts = (allPosts) => {
 // }
 
 // title show   
-let showTitle = (title,view,sum) => {
+let showTitle = (title,view) => {
    //console.log(title,view,sum)
    const countPost = document.getElementById('count-post');
+   const countText = countPost.innerText;
+   const parseCountInt = parseInt(countText);
+   const counter = parseCountInt + 1;
+   countPost.innerText = counter;
 
-    countPost.innerText = sum;
+    // ---------- add title and view -----------
     
     const titleContainer = document.getElementById('title-container');
     const div = document.createElement('div');

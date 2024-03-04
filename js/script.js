@@ -64,18 +64,6 @@ const displayAllPosts = (allPosts) => {
  
 }
 
-// mark count
-// const markCount = (allPosts) => {
-//     //console.log(allPosts);
-    
-
-//     const countPost =document.getElementById('count-post');
-//     for(const post of allPosts){
-//        count++; 
-       
-//     }
-//     countPost.innerText= count;
-// }
 
 // title show   
 let showTitle = (title,view) => {

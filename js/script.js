@@ -12,10 +12,14 @@ const allPostsFetch = async() => {
     const data = await res.json();
     const allPosts = data.posts;
     console.log(allPosts);
-    
-    allPosts.map((singlePost) => {
-        console.log(singlePost);
+    displayAllPosts(allPosts);
+}
 
+const displayAllPosts = (allPosts) => {
+    
+    allPosts.forEach((singlePost) => {
+        console.log(singlePost);
+        count++;
         title = singlePost.title;
         console.log(title);
         view = singlePost.view_count;
@@ -44,7 +48,7 @@ const allPostsFetch = async() => {
                         } min</span></p>
                     </div>
                     <div>
-                        <button onclick="showTitle(title,view)" class="bg-[#10B981] px-3 py-2 text-white text-xl rounded-full"><i class="fa-solid fa-envelope-open"></i></button>
+                        <button onclick="showTitle('${title}','${view}','${count}')" class="bg-[#10B981] px-3 py-2 text-white text-xl rounded-full"><i class="fa-solid fa-envelope-open"></i></button>
                     </div>
                 </div>
             </div>
@@ -52,19 +56,34 @@ const allPostsFetch = async() => {
         div.className = 'flex gap-16 flex-col lg:flex-row  bg-[#F3F3F5] p-8 rounded-2xl mb-8 row-span-1';
         postsContainer.appendChild(div);
 
-                         
-
-
     }); 
  
-      
-    
 }
+
+// mark count
+// const markCount = (allPosts) => {
+//     //console.log(allPosts);
+    
+
+//     const countPost =document.getElementById('count-post');
+//     for(const post of allPosts){
+//        count++; 
+       
+//     }
+//     countPost.innerText= count;
+// }
+
 // title show   
+let showTitle = (title,view,sum) => {
+   //console.log(title,view,sum)
+   const countPost = document.getElementById('count-post');
+//    const parseNumber = parseInt(countPost);
+//    console.log(parseNumber.innerText)
 
-
-let showTitle = ((title,view) => {
-    console.log(view);
+    
+    countPost.innerText = sum;
+    
+  
     const titleContainer = document.getElementById('title-container');
     const div = document.createElement('div');
     div.innerHTML =`
@@ -73,23 +92,57 @@ let showTitle = ((title,view) => {
     `
     div.classList = 'flex justify-between bg-white px-6 py-4 rounded-2xl mb-5 flex-col lg:flex-row lg:gap-0 gap-4';
     titleContainer.appendChild(div);
-}); 
+}; 
 
-showTitle();
+
 // document.getElementById('title-show').addEventListener('click',(e) => {
     
 // });
 
 // search function 
-
-const searchPosts = async() => {
-    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${category}`)
-    const data = await res.json();
-    console.log(data);
-    // const searchText = document.getElementById('search-text').value;
-    // document.getElementById('search-text').value = '';
-    //allPostsFetch(searchText);
-    
+const searchPost = () => {
+    searchPosts();
 }
-searchPosts();
+
+// latest post
+const latestPostContainer = document.getElementById('latest-post-container');
+const showLatestPosts = async() => {
+    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
+    const data = await res.json();
+    console.log('latest',data);
+
+    data.forEach(item => {
+        //console.log(item);
+        const div = document.createElement('div');
+        div.innerHTML = `
+        <div class="card   border border-[#12132D30]">
+        <figure class="px-10 pt-10">
+          <img src="${item.cover_image}" alt="Shoes" class="rounded-xl" />
+      </figure>
+      <div class="card-body">
+          <p class="flex items-center text-[#12132D99] text-xl"><i class="fa-regular fa-calendar mr-3"></i><span>${item.author.posted_date?item.author.posted_date:'No publish date'}</span></p>
+          <h3 class="text-xl text[#12132D99] font-bold mulish">${item?.title}</h3>
+          <p class="text-[#12132D99] inter">${item?.description}</p>
+
+          <div class="flex lg:gap-6   gap-3">
+            <div>
+              <img class="rounded-full w-12 h-12" src="${item?.profile_image}" alt="">
+            </div>
+             
+            <div>
+                <p>${item?.author?.name}</p>
+                <p>${item?.author?.designation?item?.author?.designation:'Unknown'}</p>
+            </div>
+          </div>
+              
+        </div>
+
+      </div>
+        `
+        div.classList ='grid-cols-1 ';
+        latestPostContainer.appendChild(div);
+
+    });
+}
+showLatestPosts();
 allPostsFetch();

@@ -103,7 +103,7 @@
                             <p class="text-[#ffffffc9] text-2xl">Share your favorite opinion and win and wp <br> forum coffee mug!</p>
                             <label class="input input-bordered rounded-full flex items-center gap-2 lg:py-8 py-6">
                                 <input id="search-text" type="text" class="grow  text-xl" placeholder="Search here anything" />
-                                <button  class="badge badge-info bg-[#797DFC] text-white lg:p-5 p-3 lg:text-xl font-bold">Search</button>
+                                <button onclick="searchPosts()"  class="badge badge-info bg-[#797DFC] text-white lg:p-5 p-3 lg:text-xl font-bold">Search</button>
                               </label>
                       </div>
                     </div>
@@ -131,7 +131,7 @@
                    <div class="bg-[#F3F3F5] p-8 rounded-2xl row-span-1">
                       <div class="flex justify-between mb-6 text-xl mulish font-semibold text-[#12132D80]">
                         <h2>Title</h2>
-                        <p>Mark as read <span>(4)</span></p>
+                        <p>Mark as read (<span id="count-post"></span>)</p>
                     </div>
                     <div id="title-container">
                         
@@ -169,33 +169,40 @@
                   <p class="text-center text-[#12132D99] inter text-xl">Yes, you can run unit tests and view the results directly within the app. The <br> integrated testing features allow for a streamlined .</p>
                 </div>
 
-                <div class="grid lg:grid-cols-3 grid-cols-1 py-14">
-                    <div class="grid-cols-1">
-                        <div class="card w-96 bg-base-100 border border-[#12132D30]">
-                            <figure class="px-10 pt-10">
-                              <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" class="rounded-xl" />
+                <div id="latest-post-container" class="grid lg:grid-cols-3 grid-cols-1 gap-8 py-14">
+                    
+                        
+                            <!-- <div class="card w-96 bg-base-100 border border-[#12132D30]">
+                              <figure class="px-10 pt-10">
+                                <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" class="rounded-xl" />
                             </figure>
                             <div class="card-body">
                                 <p class="flex items-center text-[#12132D99] text-xl"><i class="fa-regular fa-calendar mr-3"></i><span>29 January 2024</span></p>
                                 <h3 class="text-xl text[#12132D99] font-bold mulish">10 Kids Unaware of Their Halloween Costume</h3>
                                 <p class="text-[#12132D99] inter">Yes, you can run unit tests and view the results directly within the app. </p>
-
-                                <div class="flex gap-6 flex-col lg:flex-row lg:gap-0"
-                                    <div class="rounded-full">
-                                      <img src="" alt="">
-                                    </div>
-                                    <div>
+                
+                                <div class="flex gap-6 flex-col lg:flex-row lg:gap-0">
+                                  <div class="rounded-full">
+                                    <img src="./images/Vector.png" alt="">
+                                  </div>
+                                   
+                                  <div>
                                       <p>Cameron Williamson</p>
                                       <p>Unknown</p>
-                                    </div>
+                                  </div>
                                 </div>
-                          </div>
-                      </div>
+                                    
+                              </div>
+
+                            </div> -->
+                            
+                         
+                      
                     </div>
 
                 </div>
-
-            </div>
+             
+            
        </section>
 
 

@@ -51,7 +51,7 @@ const displayAllPosts = (allPosts) => {
                         } min</span></p>
                     </div>
                     <div>
-                        <button onclick="showTitle('${title}','${view}')" class="bg-[#10B981] px-3 py-2 text-white text-xl rounded-full"><i class="fa-solid fa-envelope-open"></i></button>
+                        <button onclick="showTitle('${title.replace(/'/g,'@')}','${view}')" class="bg-[#10B981] px-3 py-2 text-white text-xl rounded-full"><i class="fa-solid fa-envelope-open"></i></button>
                     </div>
                 </div>
             </div>

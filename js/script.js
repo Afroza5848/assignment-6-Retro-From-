@@ -20,6 +20,7 @@ const displayAllPosts = (allPosts) => {
         
     allPosts.forEach((singlePost) => {
         //console.log(postArray);
+        document.getElementById('loading-spinner').classList.add('hidden');
         count++;
         title = singlePost.title;
         
@@ -96,12 +97,18 @@ let showTitle = (title,view,sum) => {
 
 // search api function 
 const searchPosts = async (categoryName) => {
-   const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${categoryName}`);
-   const data = await res.json();
-   const allPosts = data.posts;
+    document.getElementById('loading-spinner').classList.remove('hidden');
+
+    setTimeout(() => {
+        displayAllPosts(allPosts); 
+    }, 2000);
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${categoryName}`);
+    const data = await res.json();
+    const allPosts = data.posts;
+   
    console.log(data);
   
-   displayAllPosts(allPosts);
+   
 }
 // handle search
 const handleSearch = () => {

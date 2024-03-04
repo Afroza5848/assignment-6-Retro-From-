@@ -16,12 +16,14 @@ const allPostsFetch = async() => {
 }
 
 const displayAllPosts = (allPosts) => {
-    
+    postsContainer.innerHTML = '';
+        
     allPosts.forEach((singlePost) => {
-        console.log(singlePost);
+        //console.log(postArray);
         count++;
         title = singlePost.title;
-        console.log(title);
+        
+        //console.log(title);
         view = singlePost.view_count;
         
        
@@ -34,17 +36,17 @@ const displayAllPosts = (allPosts) => {
             </div>
             <div class="space-y-5 w-full">
                 <div class="flex gap-10 flex-col lg:flex-row">
-                    <p class="text-xl text-[#12132D96] inter"># <span>${singlePost.category}</span></p>
-                    <p class="text-xl text-[#12132D96] inter">Author: <span>${singlePost.author.name}</span> </p>
+                    <p class="text-xl text-[#12132D96] inter"># <span>${singlePost?.category}</span></p>
+                    <p class="text-xl text-[#12132D96] inter">Author: <span>${singlePost?.author.name}</span> </p>
                 </div> 
-                    <h3 class="text-2xl text[#12132Dcc] font-extrabold mulish">${singlePost.title}</h3>
-                    <p class="text-xl text-[#12132D80] border-b border-dashed border-[#12132D4D] pb-8">${singlePost.description}</p>
+                    <h3 class="text-2xl text[#12132Dcc] font-extrabold mulish">${singlePost?.title}</h3>
+                    <p class="text-xl text-[#12132D80] border-b border-dashed border-[#12132D4D] pb-8">${singlePost?.description}</p>
 
                 <div class="flex justify-between flex-col lg:flex-row lg:gap-0 gap-4 pt-6 w-full">
                     <div class="flex gap-3 text-[#12132D96] font-semibold text-xl lg:space-x-8">
-                        <p><i class="fa-regular fa-message mr-3"></i><span>${singlePost.comment_count}</span></p>
-                        <p><i class="fa-regular fa-eye mr-3"></i> <span>${singlePost.view_count}</span></p>
-                        <p><i class="fa-regular fa-clock mr-3"></i><span>${singlePost.posted_time
+                        <p><i class="fa-regular fa-message mr-3"></i><span>${singlePost?.comment_count}</span></p>
+                        <p><i class="fa-regular fa-eye mr-3"></i> <span>${singlePost?.view_count}</span></p>
+                        <p><i class="fa-regular fa-clock mr-3"></i><span>${singlePost?.posted_time
                         } min</span></p>
                     </div>
                     <div>
@@ -55,6 +57,7 @@ const displayAllPosts = (allPosts) => {
         `
         div.className = 'flex gap-16 flex-col lg:flex-row  bg-[#F3F3F5] p-8 rounded-2xl mb-8 row-span-1';
         postsContainer.appendChild(div);
+        document.getElementById('search-box').value = "";
 
     }); 
  
@@ -77,13 +80,9 @@ const displayAllPosts = (allPosts) => {
 let showTitle = (title,view,sum) => {
    //console.log(title,view,sum)
    const countPost = document.getElementById('count-post');
-//    const parseNumber = parseInt(countPost);
-//    console.log(parseNumber.innerText)
 
-    
     countPost.innerText = sum;
     
-  
     const titleContainer = document.getElementById('title-container');
     const div = document.createElement('div');
     div.innerHTML =`
@@ -95,13 +94,28 @@ let showTitle = (title,view,sum) => {
 }; 
 
 
-// document.getElementById('title-show').addEventListener('click',(e) => {
+// search api function 
+const searchPosts = async (categoryName) => {
+   const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${categoryName}`);
+   const data = await res.json();
+   const allPosts = data.posts;
+   console.log(data);
+  
+   displayAllPosts(allPosts);
+}
+// handle search
+const handleSearch = () => {
+    console.log('click');
+    const value = document.getElementById('search-box').value;
     
-// });
+    console.log(value);
+    if(value){
+        searchPosts(value);
+    }
+    else{
+        alert('please enter valid category name');
+    }
 
-// search function 
-const searchPost = () => {
-    searchPosts();
 }
 
 // latest post
@@ -109,7 +123,7 @@ const latestPostContainer = document.getElementById('latest-post-container');
 const showLatestPosts = async() => {
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
     const data = await res.json();
-    console.log('latest',data);
+    //console.log('latest',data);
 
     data.forEach(item => {
         //console.log(item);
